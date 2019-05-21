@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Huashenger">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Huashenger">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Huashenger">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>Huashenger</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,7 +140,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Huashenger</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -248,7 +248,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Huashenger">
     </span>
 
     
@@ -316,7 +316,7 @@
 <ul>
 <li>提出了一个全新的序列推荐模型。该模型结合了self-attention网络和metric embedding，用以捕捉用户短时和长期的意图。  </li>
 <li>该模型证实了item-item之间关系的实用性。  </li>
-<li>进行了大量的参数研究。研究了不同的参数和模型结构对模型的影响。  <h3 id="模型：ATTREC"><a href="#模型：ATTREC" class="headerlink" title="模型：ATTREC"></a>模型：ATTREC</h3>&emsp;&emsp;AttRec模型包含了self-attention模块用以捕捉用户的短时意图，以及collaborative metric learning部分用以捕捉用户长期意图。<h5 id="利用self-attention建立短时意图模型"><a href="#利用self-attention建立短时意图模型" class="headerlink" title="利用self-attention建立短时意图模型"></a>利用self-attention建立短时意图模型</h5>&emsp;&emsp;用户最近的交互在接下来一段时间内影响了用户的决定或者意图。给用户短时交互建模是理解用户短时意图的重要任务。本文利用self-attention为户最近的交互建模。self-attention是attention机制的一个特殊实例，已经成功应用在了许多领域。self-attention可以保存上下文的序列信息，并能够捕捉序列元素的相互关系。<br><img src="/images/note/Next-Item/f1.png" alt><br>&emsp;&emsp;attention模块如上图所示包含了三个部分，query,key以及value。模块的输出是对value的加权求和，其中权重矩阵是由query和语气相关的key共同决定的。<br>&emsp;&emsp;假设用户的意图可以由他最近交互的L个物品得出，每一个物品可以用一个d维向量表示。用X（维度是N×d）的矩阵表示整个物品集合。最近的L个物品可以由以下矩阵表示：<br><img src="/images/note/Next-Item/f2.png" alt><br>Query,key以及value相同，都等于Xut（此处存疑，应该是映射之后的分别为Query，key以及value）。<br>&emsp;&emsp;首先，对query和key做映射:<br><img src="/images/note/Next-Item/f3.png" alt><br>其中WQ=WK（维度为d×d).ReLU是激活函数。权重矩阵则由下式计算得出：<br><img src="/images/note/Next-Item/f4.png" alt><br>输出是一个L×L的权重矩阵，代表了L个物品之间的相似性。<br>第二步，不同于其他应用，在本模型中value等于Xut。<br>最后，权重矩阵跟value相乘得到self-attention模块的输出：<br><img src="/images/note/Next-Item/f5.png" alt><br>其中，aut的维度为L×d，代表了用户短时意图的表示。为了得到一个单一一致的表示，把L个self-attention的表示取平均值，作为用户的临时意图。如下所示：<br><img src="/images/note/Next-Item/f6.png" alt><br>&emsp;&emsp;在输入向量中加入时间信号。上述attention模型没有包含时间信号。如果不包括时间信号，模型将会失去序列信息。类似Transformer，在query和key中通过位置向量加入时间信息。在这里，把不同频率的正弦值加入输入向量。时间向量包含两个正弦信号，如下所示：<br><img src="/images/note/Next-Item/f7.png" alt><br>其中，t代表时间步骤，i代表维度。时间向量在非线性转换之前加入query和key中。<h5 id="用户长期意图模型"><a href="#用户长期意图模型" class="headerlink" title="用户长期意图模型"></a>用户长期意图模型</h5>&emsp;&emsp;U（维度M×d）和V（N×d）分别代表用户和物品。用欧氏距离来度量i和u之间的距离，如下所示（没有用乘积，是因为最近有研究表明，乘积会抑制度量函数的不平等特性，会导致局部最优解）：<br><img src="/images/note/Next-Item/f8.png" alt>  <h5 id="Model-Learning"><a href="#Model-Learning" class="headerlink" title="Model Learning"></a>Model Learning</h5>&emsp;&emsp;任务是预测用户在t+1的意图，为了保持一致性，用欧氏距离来度量短时和长期的影响。用和作为最后推荐的得分。<br><img src="/images/note/Next-Item/f9.png" alt><br>上述等式中，第一部分代表长期模型的推荐得分，第二部分代表短时推荐得分。其中V和X都是物品的embedding向量，但是并不相同。最终得分通过w来控制。<br>&emsp;&emsp;在有些情况下，需要预测若干个物品而不只是一个。用T+表示接下来用户喜欢的T个物品集合，T-代表用户不喜欢的物品集合。T-从除去T+的所有物品中抽样得到。那么目标函数如下所示：<br><img src="/images/note/Next-Item/f10.png" alt><br>在上述等式中，Θ代表所有参数。用到了l2正则。dropout可以用到self-attention的非线性层。因为是使用欧氏距离，对于稀疏数据集，可以有选择地使用正则剪切策略（norm clipping strategy），将X，V，U控制在一个单位欧式球中（unit Euclidean ball）<br><img src="/images/note/Next-Item/f11.png" alt><br><img src="/images/note/Next-Item/f12.png" alt><br>&emsp;&emsp;整个模型结构，如上图所示。<br>&emsp;&emsp;到这里，正片论文的精华部分基本介绍完毕了，还剩一些细节，有兴趣的可以看论文原文。<br>&emsp;&emsp;以上，是我对整篇论文的理解，欢迎大家一起讨论，有不对的地方也欢迎指出~</li>
+<li>进行了大量的参数研究。研究了不同的参数和模型结构对模型的影响。  <h3 id="模型：ATTREC"><a href="#模型：ATTREC" class="headerlink" title="模型：ATTREC"></a>模型：ATTREC</h3>&emsp;&emsp;AttRec模型包含了self-attention模块用以捕捉用户的短时意图，以及collaborative metric learning部分用以捕捉用户长期意图。<h5 id="利用self-attention建立短时意图模型"><a href="#利用self-attention建立短时意图模型" class="headerlink" title="利用self-attention建立短时意图模型"></a>利用self-attention建立短时意图模型</h5>&emsp;&emsp;用户最近的交互在接下来一段时间内影响了用户的决定或者意图。给用户短时交互建模是理解用户短时意图的重要任务。本文利用self-attention为户最近的交互建模。self-attention是attention机制的一个特殊实例，已经成功应用在了许多领域。self-attention可以保存上下文的序列信息，并能够捕捉序列元素的相互关系。<br><img src="/images/note/Next-Item/f1.png" alt><br>&emsp;&emsp;attention模块如上图所示包含了三个部分，query,key以及value。模块的输出是对value的加权求和，其中权重矩阵是由query和语气相关的key共同决定的。<br>&emsp;&emsp;假设用户的意图可以由他最近交互的L个物品得出，每一个物品可以用一个d维向量表示。用X（维度是N×d）的矩阵表示整个物品集合。最近的L个物品可以由以下矩阵表示：<br><img src="/images/note/Next-Item/f2.png" alt><br>Query,key以及value相同，都等于<code>$$X^u_t$$</code>（此处存疑，应该是映射之后的分别为Query，key以及value）。<br>&emsp;&emsp;首先，对query和key做映射:<br><img src="/images/note/Next-Item/f3.png" alt><br>其中WQ=WK（维度为d×d).ReLU是激活函数。权重矩阵则由下式计算得出：<br><img src="/images/note/Next-Item/f4.png" alt><br>输出是一个L×L的权重矩阵，代表了L个物品之间的相似性。<br>第二步，不同于其他应用，在本模型中value等于Xut<br>最后，权重矩阵跟value相乘得到self-attention模块的输出<br><img src="/images/note/Next-Item/f5.png" alt><br>其中，aut的维度为L×d，代表了用户短时意图的表示。为了得到一个单一一致的表示，把L个self-attention的表示取平均值，作为用户的临时意图。如下所示：<br><img src="/images/note/Next-Item/f6.png" alt><br>&emsp;&emsp;在输入向量中加入时间信号。上述attention模型没有包含时间信号。如果不包括时间信号，模型将会失去序列信息。类似Transformer，在query和key中通过位置向量加入时间信息。在这里，把不同频率的正弦值加入输入向量。时间向量包含两个正弦信号，如下所示：<br><img src="/images/note/Next-Item/f7.png" alt><br>其中，t代表时间步骤，i代表维度。时间向量在非线性转换之前加入query和key中。<h5 id="用户长期意图模型"><a href="#用户长期意图模型" class="headerlink" title="用户长期意图模型"></a>用户长期意图模型</h5>&emsp;&emsp;U（维度M×d）和V（N×d）分别代表用户和物品。用欧氏距离来度量i和u之间的距离，如下所示（没有用乘积，是因为最近有研究表明，乘积会抑制度量函数的不平等特性，会导致局部最优解）：<br><img src="/images/note/Next-Item/f8.png" alt>  <h5 id="Model-Learning"><a href="#Model-Learning" class="headerlink" title="Model Learning"></a>Model Learning</h5>&emsp;&emsp;任务是预测用户在t+1的意图，为了保持一致性，用欧氏距离来度量短时和长期的影响。用和作为最后推荐的得分。<br><img src="/images/note/Next-Item/f9.png" alt><br>上述等式中，第一部分代表长期模型的推荐得分，第二部分代表短时推荐得分。其中V和X都是物品的embedding向量，但是并不相同。最终得分通过w来控制。<br>&emsp;&emsp;在有些情况下，需要预测若干个物品而不只是一个。用T+表示接下来用户喜欢的T个物品集合，T-代表用户不喜欢的物品集合。T-从除去T+的所有物品中抽样得到。那么目标函数如下所示：<br><img src="/images/note/Next-Item/f10.png" alt><br>在上述等式中，Θ代表所有参数。用到了l2正则。dropout可以用到self-attention的非线性层。因为是使用欧氏距离，对于稀疏数据集，可以有选择地使用正则剪切策略（norm clipping strategy），将X，V，U控制在一个单位欧式球中（unit Euclidean ball）<br><img src="/images/note/Next-Item/f11.png" alt><br><img src="/images/note/Next-Item/f12.png" alt><br>&emsp;&emsp;整个模型结构，如上图所示。<br>&emsp;&emsp;到这里，正片论文的精华部分基本介绍完毕了，还剩一些细节，有兴趣的可以看论文原文。<br>&emsp;&emsp;以上，是我对整篇论文的理解，欢迎大家一起讨论，有不对的地方也欢迎指出~</li>
 </ul>
 
           
@@ -634,6 +634,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 
