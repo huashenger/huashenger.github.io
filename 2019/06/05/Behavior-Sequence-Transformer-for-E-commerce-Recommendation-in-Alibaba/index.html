@@ -88,31 +88,28 @@
 
 
 
-  <meta name="description" content="前言 本文最大的特点就是将self-attention引入了推荐系统。关于self-attention的介绍可以看这篇文章。">
-<meta name="keywords" content="论文笔记,推荐系统">
+  <meta name="description" content="前言 &amp;emsp;&amp;emsp;相比于其他ctr模型，本文首次将现阶段很火的transformer加入到了推荐模型中，使模型能够更好地利用序列信息。">
+<meta name="keywords" content="论文笔记,推荐系统,阿里巴巴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Next Item Recommendation with Self-Attention">
-<meta property="og:url" content="http://yoursite.com/2019/05/21/Next-Item-Recommendation-with-Self-Attention/index.html">
+<meta property="og:title" content="Behavior Sequence Transformer for E-commerce Recommendation in Alibaba">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/index.html">
 <meta property="og:site_name" content="花生儿的博客">
-<meta property="og:description" content="前言 本文最大的特点就是将self-attention引入了推荐系统。关于self-attention的介绍可以看这篇文章。">
+<meta property="og:description" content="前言 &amp;emsp;&amp;emsp;相比于其他ctr模型，本文首次将现阶段很火的transformer加入到了推荐模型中，使模型能够更好地利用序列信息。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f1.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f2.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f3.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f4.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f5.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f6.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f7.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f8.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f9.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f10.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f11.png">
-<meta property="og:image" content="http://yoursite.com/images/note/Next-Item/f12.png">
-<meta property="og:updated_time" content="2019-05-22T08:44:08.668Z">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f1.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f2.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f3.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f4.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f5.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f6.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f7.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f8.png">
+<meta property="og:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f9.png">
+<meta property="og:updated_time" content="2019-06-05T03:13:34.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Next Item Recommendation with Self-Attention">
-<meta name="twitter:description" content="前言 本文最大的特点就是将self-attention引入了推荐系统。关于self-attention的介绍可以看这篇文章。">
-<meta name="twitter:image" content="http://yoursite.com/images/note/Next-Item/f1.png">
+<meta name="twitter:title" content="Behavior Sequence Transformer for E-commerce Recommendation in Alibaba">
+<meta name="twitter:description" content="前言 &amp;emsp;&amp;emsp;相比于其他ctr模型，本文首次将现阶段很火的transformer加入到了推荐模型中，使模型能够更好地利用序列信息。">
+<meta name="twitter:image" content="http://yoursite.com/images/note/Behavior-Sequence-Transformer/f1.png">
 
 
 
@@ -120,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/21/Next-Item-Recommendation-with-Self-Attention/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/">
 
 
 
@@ -130,7 +127,7 @@
   };
 </script>
 
-  <title>Next Item Recommendation with Self-Attention | 花生儿的博客</title>
+  <title>Behavior Sequence Transformer for E-commerce Recommendation in Alibaba | 花生儿的博客</title>
   
 
 
@@ -363,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/Next-Item-Recommendation-with-Self-Attention/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huashenger">
@@ -380,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Next Item Recommendation with Self-Attention
+          <h1 class="post-title" itemprop="name headline">Behavior Sequence Transformer for E-commerce Recommendation in Alibaba
 
               
             
@@ -406,24 +403,12 @@
                 
               
 
-              <time title="创建时间：2019-05-21 16:08:17" itemprop="dateCreated datePublished" datetime="2019-05-21T16:08:17+08:00">2019-05-21</time>
+              <time title="创建时间：2019-06-05 11:09:37 / 修改时间：11:13:34" itemprop="dateCreated datePublished" datetime="2019-06-05T11:09:37+08:00">2019-06-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-22 16:44:08" itemprop="dateModified" datetime="2019-05-22T16:44:08+08:00">2019-05-22</time>
               
             
           </span>
@@ -459,8 +444,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/21/Next-Item-Recommendation-with-Self-Attention/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/21/Next-Item-Recommendation-with-Self-Attention/" itemprop="commentCount"></span>
+                <a href="/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -496,20 +481,18 @@
 
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>本文最大的特点就是将self-attention引入了推荐系统。关于self-attention的介绍可以看这篇<a href="https://zhuanlan.zhihu.com/p/54356280" target="_blank" rel="noopener">文章</a>。  </p>
+<p>&emsp;&emsp;相比于其他ctr模型，本文首次将现阶段很火的transformer加入到了推荐模型中，使模型能够更好地利用序列信息。  </p>
 </blockquote>
 <a id="more"></a>    
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;在本篇论文中，作者利用self-attention机制来表明item-item的关系。作者提出了一个同时包含短时意图与长期意图的模型。  </p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;预测用户下一次互动的item是做核心推荐的核心。在近些年，神经网络，RNN，CNN等成为了推荐系统受欢迎的选择。在当前的模型中，存在着一个缺陷。无法获取item-item之间的的深层关系。本篇论文提出了一个新的序列神经网络推荐系统，该系统可以视为local-global的方法。本文的主要贡献如下:  </p>
-<ul>
-<li>提出了一个全新的序列推荐模型。该模型结合了self-attention网络和metric embedding，用以捕捉用户短时和长期的意图。  </li>
-<li>该模型证实了item-item之间关系的实用性。  </li>
-<li>进行了大量的参数研究。研究了不同的参数和模型结构对模型的影响。  </li>
-</ul>
-<h3 id="模型：ATTREC"><a href="#模型：ATTREC" class="headerlink" title="模型：ATTREC"></a>模型：ATTREC</h3><p>&emsp;&emsp;AttRec模型包含了self-attention模块用以捕捉用户的短时意图，以及collaborative metric learning部分用以捕捉用户长期意图。</p>
-<h5 id="利用self-attention建立短时意图模型"><a href="#利用self-attention建立短时意图模型" class="headerlink" title="利用self-attention建立短时意图模型"></a>利用self-attention建立短时意图模型</h5><p>&emsp;&emsp;用户最近的交互在接下来一段时间内影响了用户的决定或者意图。给用户短时交互建模是理解用户短时意图的重要任务。本文利用self-attention为户最近的交互建模。self-attention是attention机制的一个特殊实例，已经成功应用在了许多领域。self-attention可以保存上下文的序列信息，并能够捕捉序列元素的相互关系。<br><img src="/images/note/Next-Item/f1.png" alt><br>&emsp;&emsp;attention模块如上图所示包含了三个部分，query,key以及value。模块的输出是对value的加权求和，其中权重矩阵是由query和语气相关的key共同决定的。<br>&emsp;&emsp;假设用户的意图可以由他最近交互的L个物品得出，每一个物品可以用一个d维向量表示。用X（维度是N×d）的矩阵表示整个物品集合。最近的L个物品可以由以下矩阵表示：<br><img src="/images/note/Next-Item/f2.png" alt><br>Query,key以及value相同，都等于$X^u_t$（此处存疑，应该是映射之后的分别为Query，key以及value）。<br>&emsp;&emsp;首先，对query和key做映射:<br><img src="/images/note/Next-Item/f3.png" alt><br>其中$W_Q=W_K$（维度为d×d).ReLU是激活函数。权重矩阵则由下式计算得出：<br><img src="/images/note/Next-Item/f4.png" alt><br>输出是一个L×L的权重矩阵，代表了L个物品之间的相似性。<br>第二步，不同于其他应用，在本模型中value等于$X^u_t$<br>最后，权重矩阵跟value相乘得到self-attention模块的输出<br><img src="/images/note/Next-Item/f5.png" alt><br>其中，$a^u_t$的维度为L×d，代表了用户短时意图的表示。为了得到一个单一一致的表示，把L个self-attention的表示取平均值，作为用户的临时意图。如下所示：<br><img src="/images/note/Next-Item/f6.png" alt><br>&emsp;&emsp;在输入向量中加入时间信号。上述attention模型没有包含时间信号。如果不包括时间信号，模型将会失去序列信息。类似Transformer，在query和key中通过位置向量加入时间信息。在这里，把不同频率的正弦值加入输入向量。时间向量包含两个正弦信号，如下所示：<br><img src="/images/note/Next-Item/f7.png" alt><br>其中，t代表时间步骤，i代表维度。时间向量在非线性转换之前加入query和key中。</p>
-<h5 id="用户长期意图模型"><a href="#用户长期意图模型" class="headerlink" title="用户长期意图模型"></a>用户长期意图模型</h5><p>&emsp;&emsp;U（维度M×d）和V（N×d）分别代表用户和物品。用欧氏距离来度量i和u之间的距离，如下所示（没有用乘积，是因为最近有研究表明，乘积会抑制度量函数的不平等特性，会导致局部最优解）：<br><img src="/images/note/Next-Item/f8.png" alt>  </p>
-<h5 id="Model-Learning"><a href="#Model-Learning" class="headerlink" title="Model Learning"></a>Model Learning</h5><p>&emsp;&emsp;任务是预测用户在t+1的意图，为了保持一致性，用欧氏距离来度量短时和长期的影响。用和作为最后推荐的得分。<br><img src="/images/note/Next-Item/f9.png" alt><br>上述等式中，第一部分代表长期模型的推荐得分，第二部分代表短时推荐得分。其中V和X都是物品的embedding向量，但是并不相同。最终得分通过w来控制。<br>&emsp;&emsp;在有些情况下，需要预测若干个物品而不只是一个。用T+表示接下来用户喜欢的T个物品集合，T-代表用户不喜欢的物品集合。T-从除去T+的所有物品中抽样得到。那么目标函数如下所示：<br><img src="/images/note/Next-Item/f10.png" alt><br>在上述等式中，Θ代表所有参数。用到了l2正则。dropout可以用到self-attention的非线性层。因为是使用欧氏距离，对于稀疏数据集，可以有选择地使用正则剪切策略（norm clipping strategy），将X，V，U控制在一个单位欧式球中（unit Euclidean ball）<br><img src="/images/note/Next-Item/f11.png" alt><br><img src="/images/note/Next-Item/f12.png" alt><br>&emsp;&emsp;整个模型结构，如上图所示。<br>&emsp;&emsp;到这里，整篇论文的精华部分基本介绍完毕了，还剩一些细节，有兴趣的可以看论文原文。<br>&emsp;&emsp;以上，是我对整篇论文的理解，欢迎大家一起讨论，有不对的地方也欢迎指出~</p>
+
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;deep learning模型在推荐领域得到了广泛应用。之前模型一般都是Embedding&amp;MLP的一个框架，原始特征经过embedding成为低维稠密向量，然后将这些向量作为MLP的输入。然而这些模型忽略了用户行为的序列信息。在本篇论文，作者利用transformer模型抓取用户行为的序列信息。实验表明了该模型的优势，该模型也被部署到了淘宝线上，并在ctr上带来了极大的提升。  </p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;在近几年，deep learning模型在各大互联网公司的推荐系统中得到了广泛应用。推荐系统已经成为阿里销量和收入的重要一环。推荐系统一般会分为两个环节，召回和排序，本篇论文主要关注于排序环节，利用用户在淘宝上的历史行为预测其对商品的点击概率。<br>&emsp;&emsp;如上文所述，Embedding&amp;MLP架构已经成为业界的主流，将大量的原始特征经过embedded成低维向量，然后接入全连接网络-MLP。目前比较有代表性的就是谷歌的WDL（wide and deep learning network）和阿里的DIN（deep interest network）。<br>&emsp;&emsp;淘宝目前有WDL的排序模型，取得了一定的成绩，但是也有自己的缺点，就是忽略了用户行为的序列信息。实际中序列信息是一个很关键的信息，比如某个用户购买了手机，那么该用户很可能会买手机壳。因此为了克服现有模型的缺点，也得益于transformer的巨大成功，本文利用self-attention机制学习一个包含用户序列信息的更好的网络结构。</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p><img src="/images/note/Behavior-Sequence-Transformer/f1.png" alt><br>&emsp;&emsp;上图是整个模型的网络结构，BST（behavior sequence transformer）包含三个主要部分：embedding 层，transformer层，以及MLP。  </p>
+<h5 id="Embedding-层"><a href="#Embedding-层" class="headerlink" title="Embedding 层"></a>Embedding 层</h5><p>&emsp;&emsp;Embedding层的主要工作是有特征映射成一个固定长度的低维向量。特征主要包含以下几类：用户特征，商品特征，上下文特征和一些组合特征。这些特征就是上图中的“Other features”。除了上述特征的embedding之外，还对用户的历史行为序列中的商品以及目标商品进行了embedding。如上图所示，对每一个商品用两类特征表示：“Sequence Item Feature”（图中红色部分），“Positional Features”(图中深蓝色部分)。其中，“Sequence Item Feature”主要包含item_id 和 category_id。“Positional Features” 主要是positional embedding。将“position”（位置）作为一个商品的输入特征，然后将其射到一个低维向量。对于每一个商品的position值$pos(v_i)=t(v_t)-t(v_i)$,其中$t(v_t)$表示为推荐时间，$t(v_i)$代表用户点击该商品的时间。  </p>
+<h5 id="Transformer-层"><a href="#Transformer-层" class="headerlink" title="Transformer 层"></a>Transformer 层</h5><p>&emsp;&emsp;关于transformer，想深入了解的可以看这篇<a href="https://zhuanlan.zhihu.com/p/54356280" target="_blank" rel="noopener">文章</a>。transformer layer通过抓住每个商品与其他商品在行为序列中的关系，从而可以学习到该商品更深层次的表达。<br>&emsp;&emsp;self-attention层定义如下：<br><img src="/images/note/Behavior-Sequence-Transformer/f2.png" alt><br>其中，$Q$代表query，$K$代表key，$V$代表value。在当前场景，self-attention的输入是商品的embedding，通过映射将商品embedding转换为三个矩阵，然后把这三个矩阵输入到attention层。在本模型中，使用了多个attention：<br><img src="/images/note/Behavior-Sequence-Transformer/f3.png" alt><br>其中，映射矩阵$W^Q, W^K, W^V ∈ R^{d×d}$ ,$E$是所有商品的Embedding矩阵。<br>&emsp;&emsp;Point-wise 前馈神经网络。加入point-wise 前馈神经网络（Feed-Forward Networks， FFN）用以加强模型的非线性，定义如下所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f4.png" alt><br>为防止过拟合，本模型在self-attention和FFN中使用了dropout和LeakyReLU。因此self-attention和FFN层的输出如下所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f5.png" alt><br>其中，$W^{(1)},b^{(1)},W^{(2)},b^{(2)}$是科学参数，LayerNorm是标准的正则化层。<br>&emsp;&emsp;叠加self-attention块。为了给复杂的用户商品序列建立更好的模型，本模型将若干个模块叠加到一起，其中第b个块定义如下所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f6.png" alt><br>实际使用中，发现$b=1$的时候取得最好的效果。  </p>
+<h5 id="MLP层和损失函数"><a href="#MLP层和损失函数" class="headerlink" title="MLP层和损失函数"></a>MLP层和损失函数</h5><p>&emsp;&emsp;将Other Features的embedding和Transformer 层的输出拼接到一起，然后用三层全连接学习稠密特征之间的深层关系。为预测用户是否点击目标商品，将问题视为二分类问题，所以用sigmoid 函数作为输出单元。损失函数为交叉熵损失，如下所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f7.png" alt>  </p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>&emsp;&emsp;数据来自于淘宝日志。抽取了用户过去八天的行为数据，前七天作为训练集，第八天作为测试集。对比实验用到的baseline为WDL和DIN。除此之外，还建了一个WDL（+seq）模型，该模型在WDL基础上加上了用户之前点击过商品embedding的平均。离线使用，用AUC作为衡量不同模型效果的评判标准。线上A/B实验利用CTR和平均RT（response time）评价各个模型。具体网络参数如下所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f8.png" alt>  </p>
+<p>&emsp;&emsp;最终实验结果如下表所示：<br><img src="/images/note/Behavior-Sequence-Transformer/f9.png" alt><br>从表中可以看出，相比baseline，BST无论离线结果还是在线实验，都取得了更好的效果。</p>
 
       
     </div>
@@ -537,6 +520,8 @@
           
             <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
           
+            <a href="/tags/阿里巴巴/" rel="tag"># 阿里巴巴</a>
+          
         </div>
       
 
@@ -548,15 +533,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/21/Next-Item-Recommendation-with-Self-Attention/" rel="next" title="Next Item Recommendation with Self-Attention">
+                <i class="fa fa-chevron-left"></i> Next Item Recommendation with Self-Attention
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/05/Behavior-Sequence-Transformer-for-E-commerce-Recommendation-in-Alibaba/" rel="prev" title="Behavior Sequence Transformer for E-commerce Recommendation in Alibaba">
-                Behavior Sequence Transformer for E-commerce Recommendation in Alibaba <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -726,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">3.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型：ATTREC"><span class="nav-number">4.</span> <span class="nav-text">模型：ATTREC</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#利用self-attention建立短时意图模型"><span class="nav-number">4.0.1.</span> <span class="nav-text">利用self-attention建立短时意图模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用户长期意图模型"><span class="nav-number">4.0.2.</span> <span class="nav-text">用户长期意图模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model-Learning"><span class="nav-number">4.0.3.</span> <span class="nav-text">Model Learning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">3.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">4.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Embedding-层"><span class="nav-number">4.0.1.</span> <span class="nav-text">Embedding 层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Transformer-层"><span class="nav-number">4.0.2.</span> <span class="nav-text">Transformer 层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MLP层和损失函数"><span class="nav-number">4.0.3.</span> <span class="nav-text">MLP层和损失函数</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#实验"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a></li></div>
             
 
           </div>
